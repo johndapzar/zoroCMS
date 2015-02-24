@@ -20,4 +20,5 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
-Route::get('category','CategoryController@index');
+Route::resource('category','CategoryController');
+Route::resource('album','AlbumController');

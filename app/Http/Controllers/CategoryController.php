@@ -3,7 +3,9 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+
 use Illuminate\Http\Request;
+use App\Category;
 
 class CategoryController extends Controller {
 
@@ -14,7 +16,9 @@ class CategoryController extends Controller {
 	 */
 	public function index()
 	{
-		return view('category.index');
+		$categories=Category::orderBy('id', 'asc')->paginate();
+		return view('category.index')
+			->With('categories',$categories);
 	}
 
 	/**
@@ -34,7 +38,25 @@ class CategoryController extends Controller {
 	 */
 	public function store()
 	{
-		//
+		/*$rules = array(
+			'name' 	=> 	'required',
+			);
+		$validator = Validator::make(Input::all(), $rules);
+
+		if ($validator -> fails()) {
+			return Redirect::to('category.index')
+				->withErrors($validator)
+				->withInput(Input::all());
+		}
+		else{
+			$category = new Category;
+			$category->name=Input::get('name');
+			$category->save();
+
+			Session::flash('message', 'Successfully created');
+			return Redirect::to('category.index');
+
+		}*/
 	}
 
 	/**

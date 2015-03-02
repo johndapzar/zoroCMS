@@ -11,7 +11,7 @@
 					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table table-hover" style="margin-bottom:0px;">
 					<thead>
 					  <tr>
-					    <th height="38" align="center">Sl/No</th>
+					    <th height="38" align="center">#</th>
 					    <th height="38" align="left">Name</th>
 					    <th height="38" align="left">Cover</th>
 					    <th align="left" class="action text-center">Control</th>

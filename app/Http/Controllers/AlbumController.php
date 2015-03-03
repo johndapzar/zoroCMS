@@ -40,17 +40,16 @@ class AlbumController extends Controller {
 	public function store()
 	{
 		$input 	= Request::all();
-		$destinationPath = "upload/";
-		$extension = Request::file('cover')->getClientOriginalExtension();
-		$fileName = "_".uniqid().".".$extension;
+		$album 	= New Album();
 		if(Request::hasFile('cover')){
+			$destinationPath = "upload/";
+			$extension = Request::file('cover')->getClientOriginalExtension();
+			$fileName = "_".uniqid().".".$extension;
 			Request::file('cover')->move($destinationPath, $fileName);
+			$album->cover	= $fileName;
 		}
 
-		$album 	= New Album();
 		$album->name 	= $input['name'];
-		$album->cover	= $fileName;
-
 		$album->save();
 
 		return redirect('album');
@@ -76,7 +75,10 @@ class AlbumController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$albumById	= Album::find($id);
+		$albumAll = Album::orderBy('name')->paginate();
+		$index = $albumAll->perPage() * ($albumAll->currentPage()-1) + 1;
+		return View('album.edit')->with(['albumAll'=>$albumAll,'index'=>$index,'albumById'=>$albumById]);
 	}
 
 	/**
@@ -87,7 +89,21 @@ class AlbumController extends Controller {
 	 */
 	public function update($id)
 	{
-		//
+		$input 	= Request::all();
+		$album 			= Album::find($id);
+
+		if(Request::hasFile('cover')){
+			$destinationPath = "upload/";
+			$extension = Request::file('cover')->getClientOriginalExtension();
+			$fileName = "_".uniqid().".".$extension;
+			Request::file('cover')->move($destinationPath, $fileName);
+			$album->cover	= $fileName;
+		}
+
+		$album->name 	= $input['name'];
+		$album->save();
+
+		return redirect('album');
 	}
 
 	/**
@@ -98,7 +114,8 @@ class AlbumController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		Album::destroy($id);
+		return redirect('album');
 	}
 
 }

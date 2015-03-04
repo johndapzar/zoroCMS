@@ -2,11 +2,8 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Album extends Model {
+class Upload extends Model {
 
 	
-	protected $fillable = [
-		'name'
-	];
 
 }

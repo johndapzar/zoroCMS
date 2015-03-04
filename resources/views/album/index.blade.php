@@ -33,14 +33,10 @@
 					    
 					@endforeach
 					</tbody>
-					<tfoot>
-					<tr>
-						<td colspan="3">{!! $albumAll !!}<td>
-					</tr>
-					</tfoot>
 					</table>
 				</div>
 			</div>
+			{!! $albumAll !!}
 		</div>
 		<div class="col-md-4">
 			<div class="panel panel-default">

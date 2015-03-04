@@ -2,13 +2,11 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
-
-use Illuminate\Http\Request;
-use App\Category;
-
+use Request;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\LengthAwarePaginator;
+use App\Category;
+
 
 class CategoryController extends Controller {
 
@@ -20,8 +18,9 @@ class CategoryController extends Controller {
 	public function index()
 	{
 		$categories=Category::orderBy('id', 'asc')->paginate();
+		$index = $categories->perPage() * ($categories->currentPage()-1) + 1;
 		return view('category.index')
-			->With('categories',$categories);
+			->With(['categories'=>$categories, 'index'=>$index]);
 	}
 
 	/**
@@ -41,25 +40,15 @@ class CategoryController extends Controller {
 	 */
 	public function store()
 	{
-		/*$rules = array(
-			'name' 	=> 	'required',
-			);
-		$validator = Validator::make(Input::all(), $rules);
+		
 
-		if ($validator -> fails()) {
-			return Redirect::to('category.index')
-				->withErrors($validator)
-				->withInput(Input::all());
-		}
-		else{
+			$input 	= Request::all();
 			$category = new Category;
-			$category->name=Input::get('name');
+			$category->name =$input['name'];
 			$category->save();
-
-			Session::flash('message', 'Successfully created');
-			return Redirect::to('category.index');
-
-		}*/
+			
+			return Redirect('category');
+		
 	}
 
 	/**
@@ -81,7 +70,11 @@ class CategoryController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$categoryById = Category::find($id);
+		$categories=Category::orderBy('id', 'asc')->paginate();
+		$index = $categories->perPage() * ($categories->currentPage()-1) + 1;
+		return view('category.edit')
+			->With(['categories'=>$categories, 'index'=>$index, 'categoryById' =>$categoryById]);
 	}
 
 	/**
@@ -92,7 +85,12 @@ class CategoryController extends Controller {
 	 */
 	public function update($id)
 	{
-		//
+		$input 	=Request::all();
+		$category =Category::find($id);
+		$category->name	= $input['name'];
+		$category->save();
+
+			return Redirect('category');
 	}
 
 	/**
@@ -103,7 +101,9 @@ class CategoryController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		Category::destroy($id);
+
+		return Redirect('category');
 	}
 
 }

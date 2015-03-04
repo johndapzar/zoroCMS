@@ -25,8 +25,12 @@
 							<td>{{date('dS F, Y h:iA', strtotime($category->created_at))}}</td>
 							<td>
 								{!! Form::open(array('url'=>route('category.destroy', array($category->id)),'method'=>'delete')) !!}
-								<a href="{!! route('category.edit', array($category->id)) !!}" class="btn btn-xs btn-success tooltip-top" title="Edit category"><i class="glyphicon glyphicon-edit"></i></a>&nbsp;&nbsp;
-								<button type="submit" onclick="return confirm ('<?php echo ('Are you sure') ?>');" name="id" class="btn btn-xs btn-danger tooltip-top" title="Remove Category" value="{{$category->id}}"><i class="glyphicon glyphicon-trash"></i></button>
+									<?php if($category->id == $categoryById->id){ ?>
+										<a href="{{route('category.edit', array($category->id))}}" class="btn btn-xs btn-success tooltip-top disabled" title="Edit Category"><i class="glyphicon glyphicon-edit"></i></a>&nbsp;&nbsp;
+									<?php } else { ?>
+										<a href="{{route('category.edit', array($category->id), 'page='.$categories->currentPage())}}" class="btn btn-xs btn-success tooltip-top" title="Edit Category"><i class="glyphicon glyphicon-edit"></i></a>&nbsp;&nbsp;
+									<?php } ?>
+									<button type="submit" onclick="return confirm ('<?php echo ('Are you sure') ?>');" name="id" class="btn btn-xs btn-danger tooltip-top" title="Remove Category" value="{{$category->id}}"><i class="glyphicon glyphicon-trash"></i></button>
 					    		{!! Form::close() !!}
 							</td>
 						</tr>
@@ -38,26 +42,28 @@
 		</div>
 		<div class="col-md-4">
 			<div class="panel panel-default">
-				<div class="panel-heading">New Category</div>
+				<div class="panel-heading">Edit Category</div>
 					<div class="panel-body">
-
-						{!!Form::open(array('route'=>'category.store', 'class'=>'form-horizontal'))!!}
+						{!! Form::model($categoryById, ['route'=>['category.update', $categoryById->id], 'method'=>'patch', 'class'=>'form-horizontal']) !!}
 							<div class="form-group">
 								<div class="col-md-4">
 									{!! Form::label('name', 'Name', array('class'=>'control-label')) !!}
 								</div>
 								<div class="col-md-8">
-									{!! Form::text('name', '',array('class'=>'form-control input-sm')) !!}
+									{!! Form::text('name', Request::old('name'),array('class'=>'form-control input-sm')) !!}
 									@if($errors->has('name'))
 											<p class="help-block"><span class="text-danger">{{$errors->first('name')}}</span></p>
 									@endif
 								</div>						
 							</div>
-
-							<div class="col-md-12m pull-right">
-								<button type="submit" name="submit" class="btn btn-success btn-sm">{!!'Submit'!!}</button>
-							</div>
-						{!!Form::close()!!}
+								<div class="form-group">
+									<div class="col-md-4"></div>
+									<div class="col-md-8">
+										<button type="submit" name="submit" class="btn btn-success btn-sm">{!!'Save'!!}</button>
+										<button href="{{route('category.index') }}" class="btn btn-primary btn-sm"><?php echo 'Cancel' ?></button>
+									</div>
+								</div>
+						{!! Form::close() !!}
 					</div>
 			</div>
 		</div>

@@ -3,7 +3,9 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use Illuminate\Http\Request;
+use App\Post;
+use Request;
+use App\Category;
 
 class postController extends Controller {
 
@@ -14,7 +16,10 @@ class postController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		$posts=Post::orderBy('id', 'asc')->paginate();
+		$index = $posts->perPage() * ($posts->currentPage()-1) + 1;
+		return view('post.index')
+			->With(['posts'=>$posts, 'index'=>$index]);
 	}
 
 	/**
@@ -24,9 +29,12 @@ class postController extends Controller {
 	 */
 	public function create()
 	{
-		$posts=Post::orderBy('id', 'asc')->paginate();
+		$categories = Category::orderBy('id','asc')
+			->get()
+			->lists('name','id');
+		
 		return view('post.create')
-			->With(['posts'=>$posts]);
+			->With([ 'categories'=>$categories]);
 	}
 
 	/**
@@ -36,7 +44,13 @@ class postController extends Controller {
 	 */
 	public function store()
 	{
-		//
+			$input 	= Request::all();
+			$category = new Post;
+			$category->title =$input['title'];
+			$category->body =$input['body'];
+			$category->save();
+			
+			return Redirect('post');
 	}
 
 	/**
@@ -58,7 +72,16 @@ class postController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$postById = Post::find($id);
+		$categories = Category::orderBy('id','asc')
+			->get()
+			->lists('name','id');
+
+		
+		return view('post.edit')
+			->With([ 
+				'categories'=>$categories,
+				'postById'=>$postById]);
 	}
 
 	/**
@@ -69,7 +92,13 @@ class postController extends Controller {
 	 */
 	public function update($id)
 	{
-		//
+			$input 	= Request::all();
+			$post=Post::find($id);
+			$post->title =$input['title'];
+			$post->body =$input['body'];
+			$post->save();
+			
+			return Redirect('post');
 	}
 
 	/**
@@ -80,7 +109,9 @@ class postController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		Post::destroy($id);
+
+		return Redirect('post');
 	}
 
 }

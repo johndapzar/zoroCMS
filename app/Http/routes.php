@@ -22,3 +22,4 @@ Route::controllers([
 
 Route::resource('category','CategoryController');
 Route::resource('album','AlbumController');
+Route::resource('photo','PhotoController');

@@ -2,12 +2,9 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 use App\Album;
-use Request;
-use Illuminate\Pagination\Paginator;
-use Illuminate\Pagination\LengthAwarePaginator;
-
 class AlbumController extends Controller {
 
 	/**
@@ -37,15 +34,21 @@ class AlbumController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-		$input 	= Request::all();
+		$rules	= ['name' 	=> 'required'];
+		$this->validate($request, $rules);
+		/*$validator	= Validator::make(['name'=>'required'],['cover'=>'required']);
+		if($validator->fails()){
+			return redirect()->back()->withErrors($validator->errors());
+		}*/
+		$input 	= $request->all();//Request::all();
 		$album 	= New Album();
-		if(Request::hasFile('cover')){
+		if($request->hasFile('cover')){
 			$destinationPath = "upload/";
-			$extension = Request::file('cover')->getClientOriginalExtension();
+			$extension = $request->file('cover')->getClientOriginalExtension();
 			$fileName = "_".uniqid().".".$extension;
-			Request::file('cover')->move($destinationPath, $fileName);
+			$request->file('cover')->move($destinationPath, $fileName);
 			$album->cover	= $fileName;
 		}
 
@@ -87,16 +90,19 @@ class AlbumController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($id, Request $request)
 	{
-		$input 	= Request::all();
-		$album 			= Album::find($id);
+		$rules	= ['name' 	=> 'required'];
+		$this->validate($request, $rules);
 
-		if(Request::hasFile('cover')){
+		$input 	= $request->all();
+		$album 	= Album::find($id);
+
+		if($request->hasFile('cover')){
 			$destinationPath = "upload/";
-			$extension = Request::file('cover')->getClientOriginalExtension();
+			$extension = $request->file('cover')->getClientOriginalExtension();
 			$fileName = "_".uniqid().".".$extension;
-			Request::file('cover')->move($destinationPath, $fileName);
+			$request->file('cover')->move($destinationPath, $fileName);
 			$album->cover	= $fileName;
 		}
 

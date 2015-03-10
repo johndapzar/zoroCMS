@@ -42,6 +42,7 @@
 					<li><a href="{{ route('album.index') }}">Album</a></li>
 					<li><a href="{{ route('photo.index') }}">Photo</a></li>
 					<li><a href="{{ route('category.index') }}">Category</a></li>
+					<li><a href="{{ route('post.index') }}">Post</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">

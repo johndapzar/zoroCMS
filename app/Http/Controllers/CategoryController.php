@@ -2,9 +2,7 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Request;
-use Illuminate\Pagination\Paginator;
-use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Http\Request;
 use App\Category;
 
 
@@ -38,14 +36,17 @@ class CategoryController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-		
+		$rules = ['name'=>'required'];
+		$this->validate($request, $rules);
 
+		Category::create($request->except('_token'));
+			/*
 			$input 	= Request::all();
 			$category = new Category;
 			$category->name =$input['name'];
-			$category->save();
+			$category->save();*/
 			
 			return Redirect('category');
 		
@@ -83,13 +84,18 @@ class CategoryController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($id,Request $request)
 	{
-		$input 	=Request::all();
+		$rules = ['name'=>'required'];
+		$this->validate($request, $rules);
+
+		$category =Category::find($id);
+		$category->update($request->except('_token'));
+		/*$input 	=Request::all();
 		$category =Category::find($id);
 		$category->name	= $input['name'];
 		$category->save();
-
+*/
 			return Redirect('category');
 	}
 

@@ -12,7 +12,7 @@
 
 								<div class="col-md-12">
 									{!! Form::label('category', 'Category', array('class'=>'control-label')) !!}
-									{!! Form::select('category', ['Select Category']+$categories, 'null',array('class' =>'input-sm form-control')) !!}
+									{!! Form::select('category_id', [''=>'Select Category']+$categories, 'null',array('class' =>'input-sm form-control')) !!}
 									@if($errors->has('category'))
 										<p class="help-block"><span class="text-danger">{{$errors->first('category')}}</span></p>
 									@endif

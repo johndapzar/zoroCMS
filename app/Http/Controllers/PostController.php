@@ -2,9 +2,9 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 use App\Post;
-use Request;
 use App\Category;
 
 class postController extends Controller {
@@ -42,14 +42,23 @@ class postController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-			$input 	= Request::all();
+		$rules = [
+					'title'=>'required',
+					'category_id'=>'required',
+					'body'=>'required'
+					];
+
+		$this->validate($request, $rules);
+
+		Post::create($request->except('_token'));
+			/*$input 	= Request::all();
 			$category = new Post;
 			$category->title =$input['title'];
 			$category->body =$input['body'];
 			$category->save();
-			
+			*/
 			return Redirect('post');
 	}
 
@@ -90,13 +99,22 @@ class postController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($id, Request $request)
 	{
-			$input 	= Request::all();
+		$rules = [
+					'title'=>'required',
+					'category_id'=>'required',
+					'body'=>'required'
+					];
+		$this->validate($request, $rules);
+
+		$post =Post::find($id);
+		$post->update($request->except('_token'));
+			/*$input 	= Request::all();
 			$post=Post::find($id);
 			$post->title =$input['title'];
 			$post->body =$input['body'];
-			$post->save();
+			$post->save();*/
 			
 			return Redirect('post');
 	}

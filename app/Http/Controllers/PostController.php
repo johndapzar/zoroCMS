@@ -2,12 +2,13 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+
 use Illuminate\Http\Request;
 
-use App\Post;
 use App\Category;
+use App\Post;
 
-class postController extends Controller {
+class PostController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -16,10 +17,10 @@ class postController extends Controller {
 	 */
 	public function index()
 	{
-		$posts=Post::orderBy('id', 'asc')->paginate();
-		$index = $posts->perPage() * ($posts->currentPage()-1) + 1;
-		return view('post.index')
-			->With(['posts'=>$posts, 'index'=>$index]);
+		$postAll	= Post::orderBy('title')->paginate();
+		$index = $postAll->perPage() * ($postAll->currentPage()-1) + 1;
+
+		return view('post.index',compact('postAll','index')); 
 	}
 
 	/**
@@ -29,12 +30,8 @@ class postController extends Controller {
 	 */
 	public function create()
 	{
-		$categories = Category::orderBy('id','asc')
-			->get()
-			->lists('name','id');
-		
-		return view('post.create')
-			->With([ 'categories'=>$categories]);
+		$categoryAll	= Category::orderBy('name')->lists('name','id');
+		return view('post.create',compact('categoryAll')); 
 	}
 
 	/**
@@ -45,21 +42,16 @@ class postController extends Controller {
 	public function store(Request $request)
 	{
 		$rules = [
-					'title'=>'required',
-					'category_id'=>'required',
-					'body'=>'required'
-					];
-
+			'title'	=> 'required',
+			'body'	=> 'required',
+			'category_id' => 'required',
+		];
 		$this->validate($request, $rules);
 
+		$request->user_id = '1';
 		Post::create($request->except('_token'));
-			/*$input 	= Request::all();
-			$category = new Post;
-			$category->title =$input['title'];
-			$category->body =$input['body'];
-			$category->save();
-			*/
-			return Redirect('post');
+
+		return redirect('post');
 	}
 
 	/**
@@ -81,16 +73,9 @@ class postController extends Controller {
 	 */
 	public function edit($id)
 	{
-		$postById = Post::find($id);
-		$categories = Category::orderBy('id','asc')
-			->get()
-			->lists('name','id');
-
-		
-		return view('post.edit')
-			->With([ 
-				'categories'=>$categories,
-				'postById'=>$postById]);
+		$postById		= post::find($id);
+		$categoryAll	= Category::orderBy('name')->lists('name','id');
+		return view('post.edit',compact('postById','categoryAll')); 
 	}
 
 	/**
@@ -102,21 +87,16 @@ class postController extends Controller {
 	public function update($id, Request $request)
 	{
 		$rules = [
-					'title'=>'required',
-					'category_id'=>'required',
-					'body'=>'required'
-					];
+			'title'	=> 'required',
+			'body'	=> 'required',
+			'category_id' => 'required',
+		];
 		$this->validate($request, $rules);
 
-		$post =Post::find($id);
+		$post = Post::find($id);
 		$post->update($request->except('_token'));
-			/*$input 	= Request::all();
-			$post=Post::find($id);
-			$post->title =$input['title'];
-			$post->body =$input['body'];
-			$post->save();*/
-			
-			return Redirect('post');
+
+		return redirect('post');
 	}
 
 	/**
@@ -128,8 +108,7 @@ class postController extends Controller {
 	public function destroy($id)
 	{
 		Post::destroy($id);
-
-		return Redirect('post');
+		return redirect('post');
 	}
 
 }

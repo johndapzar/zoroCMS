@@ -2,9 +2,12 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+
 use Illuminate\Http\Request;
 
+use App\AlbumCat;
 use App\Album;
+
 class AlbumController extends Controller {
 
 	/**
@@ -14,9 +17,10 @@ class AlbumController extends Controller {
 	 */
 	public function index()
 	{
+		$albumCatAll = AlbumCat::orderBy('name')->lists('name','id');
 		$albumAll = Album::orderBy('name')->paginate();
 		$index = $albumAll->perPage() * ($albumAll->currentPage()-1) + 1;
-		return View('album.index')->with(['albumAll'=>$albumAll,'index'=>$index]);
+		return View('album.index',compact('albumAll','index','albumCatAll'));
 	}
 
 	/**
@@ -36,23 +40,29 @@ class AlbumController extends Controller {
 	 */
 	public function store(Request $request)
 	{
-		$rules	= ['name' 	=> 'required'];
+		$rules	= [
+			'name' 	=> 'required',
+			'album_cat_id' => 'required'
+		];
 		$this->validate($request, $rules);
-		/*$validator	= Validator::make(['name'=>'required'],['cover'=>'required']);
-		if($validator->fails()){
-			return redirect()->back()->withErrors($validator->errors());
-		}*/
-		$input 	= $request->all();//Request::all();
+
+		$input 	= $request->all();
 		$album 	= New Album();
+
+		$albumCatDir = AlbumCat::find($input['album_cat_id']);
+		$albumDir = $albumCatDir->directory.uniqid().'/';
+		mkdir($albumDir);
+
 		if($request->hasFile('cover')){
-			$destinationPath = "upload/";
 			$extension = $request->file('cover')->getClientOriginalExtension();
 			$fileName = "_".uniqid().".".$extension;
-			$request->file('cover')->move($destinationPath, $fileName);
+			$request->file('cover')->move($albumDir, $fileName);
 			$album->cover	= $fileName;
 		}
 
-		$album->name 	= $input['name'];
+		$album->directory 	= $albumDir;
+		$album->name 		= $input['name'];
+		$album->album_cat_id = $input['album_cat_id'];
 		$album->save();
 
 		return redirect('album');
@@ -78,10 +88,11 @@ class AlbumController extends Controller {
 	 */
 	public function edit($id)
 	{
+		$albumCatAll = AlbumCat::orderBy('name')->lists('name','id');
 		$albumById	= Album::find($id);
 		$albumAll = Album::orderBy('name')->paginate();
 		$index = $albumAll->perPage() * ($albumAll->currentPage()-1) + 1;
-		return View('album.edit')->with(['albumAll'=>$albumAll,'index'=>$index,'albumById'=>$albumById]);
+		return View('album.edit',compact('albumById','albumAll','index','albumCatAll'));
 	}
 
 	/**
@@ -92,17 +103,18 @@ class AlbumController extends Controller {
 	 */
 	public function update($id, Request $request)
 	{
-		$rules	= ['name' 	=> 'required'];
+		$rules	= [
+			'name' 	=> 'required'
+		];
 		$this->validate($request, $rules);
 
 		$input 	= $request->all();
 		$album 	= Album::find($id);
 
 		if($request->hasFile('cover')){
-			$destinationPath = "upload/";
 			$extension = $request->file('cover')->getClientOriginalExtension();
 			$fileName = "_".uniqid().".".$extension;
-			$request->file('cover')->move($destinationPath, $fileName);
+			$request->file('cover')->move($album->directory, $fileName);
 			$album->cover	= $fileName;
 		}
 

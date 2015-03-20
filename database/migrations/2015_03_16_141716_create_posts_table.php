@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMenusTable extends Migration {
+class CreatePostsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,12 +12,14 @@ class CreateMenusTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('menus', function(Blueprint $table)
+		Schema::create('posts', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('name');
-			$table->string('parent');
-			$table->string('status');
+			$table->integer('category_id');
+			$table->integer('user_id');
+			$table->text('title');
+			$table->text('body');
+			$table->string('highlight');
 			$table->timestamps();
 		});
 	}
@@ -29,7 +31,7 @@ class CreateMenusTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('menus');
+		Schema::drop('posts');
 	}
 
 }

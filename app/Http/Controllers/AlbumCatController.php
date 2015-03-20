@@ -5,9 +5,9 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-use App\Category;
+use App\AlbumCat;
 
-class CategoryController extends Controller {
+class AlbumCatController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -16,10 +16,10 @@ class CategoryController extends Controller {
 	 */
 	public function index()
 	{
-		$categoryAll	= Category::orderBy('name')->paginate();
-		$index = $categoryAll->perPage() * ($categoryAll->currentPage()-1) + 1;
+		$albumCatAll	= AlbumCat::orderBy('name')->paginate();
+		$index = $albumCatAll->perPage() * ($albumCatAll->currentPage()-1) + 1;
 
-		return view('category.index',compact('categoryAll','index')); 
+		return view('albumcat.index',compact('albumCatAll','index')); 
 	}
 
 	/**
@@ -41,10 +41,12 @@ class CategoryController extends Controller {
 	{
 		$rules	= ['name'=>'required'];
 		$this->validate($request, $rules);
+		$dir = uniqid();
+		mkdir('upload/'.$dir);
+		$request['directory'] = 'upload/'.$dir.'/';
+		AlbumCat::create($request->except('_token'));
 
-		Category::create($request->except('_token'));
-
-		return redirect('category');
+		return redirect('albumcat');
 	}
 
 	/**
@@ -66,11 +68,11 @@ class CategoryController extends Controller {
 	 */
 	public function edit($id)
 	{
-		$categoryAll	= Category::orderBy('name')->paginate();
-		$categoryById	= Category::find($id);
-		$index = $categoryAll->perPage() * ($categoryAll->currentPage()-1) + 1;
+		$albumCatAll	= AlbumCat::orderBy('name')->paginate();
+		$albumCatById	= AlbumCat::find($id);
+		$index = $albumCatAll->perPage() * ($albumCatAll->currentPage()-1) + 1;
 
-		return view('category.edit',compact('categoryAll','categoryById','index'));
+		return view('albumcat.edit',compact('albumCatAll','albumCatById','index'));
 	}
 
 	/**
@@ -84,10 +86,10 @@ class CategoryController extends Controller {
 		$rules	= ['name'=>'required'];
 		$this->validate($request, $rules);
 
-		$category = Category::find($id);
-		$category->update($request->except('_token'));
+		$albumCat = AlbumCat::find($id);
+		$albumCat->update($request->except('_token'));
 
-		return redirect('category');
+		return redirect('albumcat');
 	}
 
 	/**
@@ -98,9 +100,8 @@ class CategoryController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		Category::destroy($id);
-		return redirect('category');
+		AlbumCat::destroy($id);
+		return redirect('albumcat');
 	}
-
 
 }

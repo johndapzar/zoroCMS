@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePostsTable extends Migration {
+class CreateAlbumCatsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,12 +12,11 @@ class CreatePostsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('posts', function(Blueprint $table)
+		Schema::create('album_cats', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('category_id');
-			$table->string('title');
-			$table->text('body');
+			$table->string('name');
+			$table->string('directory');
 			$table->timestamps();
 		});
 	}
@@ -29,7 +28,7 @@ class CreatePostsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('posts');
+		Schema::drop('album_cats');
 	}
 
 }

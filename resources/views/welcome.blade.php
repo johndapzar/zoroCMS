@@ -11,18 +11,19 @@
     <title>Oleose App Landing Page | Bootstrap Theme</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <link rel="shortcut icon" href="img/favicon.png">
 
-    <link rel="stylesheet" href="css/bootstrap.css">
-    
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/slick.css">
-    <link rel="stylesheet" href="js/rs-plugin/css/settings.css">
+    <link rel="shortcut icon" href="{{ asset('/img/favicon.png') }}">
 
-    <script type="text/javascript" src="js/modernizr.custom.32033.js"></script>
+    <link rel="stylesheet" href="{{ asset('/css/bootstrap.css') }}">
     
-    <link rel="stylesheet" href="css/eco.css">
+    <link rel="stylesheet" href="{{ asset('/css/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('/js/rs-plugin/css/settings.css') }}">
+
+    <script type="text/javascript" src="{{ asset('/js/modernizr.custom.32033.js') }}"></script>
+    
+    <link rel="stylesheet" href="{{ asset('/css/eco.css') }}">
 
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -35,7 +36,7 @@
 
     <div class="pre-loader">
         <div class="load-con">
-            <img src="img/eco/logo.png" class="animated fadeInDown" alt="">
+            <img src="{{ asset('/img/eco/logo.png') }}" class="animated fadeInDown" alt="">
             <div class="spinner">
               <div class="bounce1"></div>
               <div class="bounce2"></div>
@@ -54,7 +55,7 @@
                             <span class="fa fa-bars fa-lg"></span>
                         </button>
                         <a class="navbar-brand" href="index.html">
-                            <img src="img/eco/logo.png" alt="" class="logo">
+                            <img src="{{ asset('/img/eco/logo.png') }}" alt="" class="logo">
                         </a>
                     </div>
 
@@ -91,7 +92,7 @@
                     <!-- SLIDE  -->
                     <li data-transition="fade" data-slotamount="7" data-masterspeed="1500" >
                         <!-- MAIN IMAGE -->
-                        <img src="img/transparent.png"  alt="slidebg1"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+                        <img src="{{ asset('/img/transparent.png') }}"  alt="slidebg1"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
                         <!-- LAYERS -->
                         <!-- LAYER NR. 1 -->
                         <div class="tp-caption lfl fadeout hidden-xs"
@@ -102,7 +103,7 @@
                             data-speed="500"
                             data-start="700"
                             data-easing="Power4.easeOut">
-                            <img src="img/eco/Slides/hand-eco.png" alt="">
+                            <img src="{{ asset('/img/eco/Slides/hand-eco.png') }}" alt="">
                         </div>
 
                         <div class="tp-caption lfl fadeout visible-xs"
@@ -113,7 +114,7 @@
                             data-speed="500"
                             data-start="700"
                             data-easing="Power4.easeOut">
-                            <img src="img/eco/iphone-eco.png" alt="">
+                            <img src="{{ asset('/img/eco/iphone-eco.png') }}" alt="">
                         </div>
 
                         <div class="tp-caption large_white_bold sft" data-x="550" data-y="center" data-hoffset="0" data-voffset="-80" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
@@ -137,7 +138,7 @@
                     <!-- SLIDE 2 -->
                     <li data-transition="zoomout" data-slotamount="7" data-masterspeed="1000" >
                         <!-- MAIN IMAGE -->
-                        <img src="img/transparent.png"  alt="slidebg1"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+                        <img src="{{ asset('/img/transparent.png') }}"  alt="slidebg1"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
                         <!-- LAYERS -->
                         <!-- LAYER NR. 1 -->
                         <div class="tp-caption lfb fadeout hidden-xs"
@@ -162,7 +163,7 @@
                     <!-- SLIDE 3 -->
                     <li data-transition="zoomout" data-slotamount="7" data-masterspeed="1000" >
                         <!-- MAIN IMAGE -->
-                        <img src="img/transparent.png"  alt="slidebg1"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+                        <img src="{{ asset('/img/transparent.png') }}"  alt="slidebg1"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
                         <!-- LAYERS -->
                         <!-- LAYER NR. 1 -->
                         <div class="tp-caption customin customout hidden-xs"
@@ -175,7 +176,7 @@
                             data-speed="1000"
                             data-start="700"
                             data-easing="Power4.easeOut">
-                            <img src="img/eco/Slides/family-eco.png" alt="">
+                            <img src="{{ asset('/img/eco/Slides/family-eco.png') }}" alt="">
                         </div>
 
                         <div class="tp-caption customin customout visible-xs"
@@ -188,7 +189,7 @@
                             data-speed="1000"
                             data-start="700"
                             data-easing="Power4.easeOut">
-                            <img src="img/eco/Slides/family-eco.png" alt="">
+                            <img src="{{ asset('/img/eco/Slides/family-eco.png') }}" alt="">
                         </div>
 
                         <div class="tp-caption lfb visible-xs" data-x="center" data-y="center" data-hoffset="0" data-voffset="400" data-speed="1000" data-start="1200" data-easing="Power4.easeOut">
@@ -323,7 +324,7 @@
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-4" >
-                        <img src="img/eco/iphone-eco.png" class="img-responsive scrollpoint sp-effect5" alt="">
+                        <img src="{{ asset('/img/eco/iphone-eco.png') }}" class="img-responsive scrollpoint sp-effect5" alt="">
                     </div>
                     <div class="col-md-4 col-sm-4 scrollpoint sp-effect2">
                         <div class="media feature">
@@ -481,31 +482,31 @@
                 </div>
                 <div class="slider filtering scrollpoint sp-effect5" >
                     <div class="one">
-                        <img src="img/eco/screens/profile.jpg" alt="">
+                        <img src="{{ asset('/img/eco/screens/profile.jpg') }}" alt="">
                         <h4>Profile Page</h4>
                     </div>
                     <div class="two">
-                        <img src="img/eco/screens/menu.jpg" alt="">
+                        <img src="{{ asset('/img/eco/screens/menu.jpg') }}" alt="">
                         <h4>Toggel Menu</h4>
                     </div>
                     <div class="three">
-                        <img src="img/eco/screens/weather.jpg" alt="">
+                        <img src="{{ asset('/img/eco/screens/weather.jpg') }}" alt="">
                         <h4>Weather Forcast</h4>
                     </div>
                     <div class="one">
-                        <img src="img/eco/screens/signup.jpg" alt="">
+                        <img src="{{ asset('/img/eco/screens/signup.jpg') }}" alt="">
                         <h4>Sales Analysis</h4>
                     </div>
                     <div class="one">
-                        <img src="img/eco/screens/calendar.jpg" alt="">
+                        <img src="{{ asset('/img/eco/screens/calendar.jpg') }}" alt="">
                         <h4>Event Calendar</h4>
                     </div>
                     <div class="two">
-                        <img src="img/eco/screens/options.jpg" alt="">
+                        <img src="{{ asset('/img/eco/screens/options.jpg') }}" alt="">
                         <h4>Some Options</h4>
                     </div>
                     <div class="three">
-                        <img src="img/eco/screens/sales.jpg" alt="">
+                        <img src="{{ asset('/img/eco/screens/sales.jpg') }}" alt="">
                         <h4>Lorem ipsum dolor</h4>
                     </div>
                 </div>
@@ -540,7 +541,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="hanging-phone scrollpoint sp-effect2 hidden-xs">
-                            <img src="img/eco/eco-angled2.png" alt="">
+                            <img src="{{ asset('/img/eco/eco-angled2.png') }}" alt="">
                         </div>
                         <div class="platforms">
                             <a href="#" class="btn btn-primary inverse scrollpoint sp-effect1">
@@ -634,20 +635,20 @@
                 </div>
                 <div class="rights">
                     <p>Copyright &copy; 2014</p>
-                    <p>Template by <a href="http://www.scoopthemes.com" target="_blank">ScoopThemes</a></p>
+                    <p>Template by <a href="http://www.pornhub.com" target="_blank">DapZar</a></p>
                 </div>
             </div>
         </footer>
 
     </div>
-    <script src="js/jquery-1.11.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/slick.min.js"></script>
-    <script src="js/placeholdem.min.js"></script>
-    <script src="js/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
-    <script src="js/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-    <script src="js/waypoints.min.js"></script>
-    <script src="js/scripts.js"></script>
+    <script src="{{ asset('/js/jquery-1.11.1.min.js') }}"></script>
+    <script src="{{ asset('/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('/js/slick.min.js') }}"></script>
+    <script src="{{ asset('/js/placeholdem.min.js') }}"></script>
+    <script src="{{ asset('/js/rs-plugin/js/jquery.themepunch.plugins.min.js') }}"></script>
+    <script src="{{ asset('/js/rs-plugin/js/jquery.themepunch.revolution.min.js') }}"></script>
+    <script src="{{ asset('/js/waypoints.min.js') }}"></script>
+    <script src="{{ asset('/js/scripts.js') }}"></script>
     <script>
         $(document).ready(function() {
             appMaster.preLoader();

@@ -1,0 +1,32 @@
+.navbar-default{
+	background-color: rgba(0,0,0,0.3);
+	border-color: transparent;
+	margin-bottom: -54px;
+}
+
+h1.whitehead {
+	color: #eee;
+	margin:3px;
+}
+
+p.whitehead {
+	margin: 3px;
+	color:#ccc;
+}
+.whitehead {
+	background-color:rgba(0,0,0,0.5);
+	padding: 2px;
+	width: 50%;
+}
+
+.navbar-default .navbar-brand {
+	color:#fbfbfb;
+}
+
+.navbar-default .navbar-nav > li > a {
+	color: #ccc;
+}
+
+.tp-container {
+  height: 122px;
+}

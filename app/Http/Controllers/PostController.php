@@ -15,8 +15,9 @@ class PostController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index(Request $request)
 	{
+
 		$postAll	= Post::orderBy('title')->paginate();
 		$index = $postAll->perPage() * ($postAll->currentPage()-1) + 1;
 

@@ -31,7 +31,11 @@ class WelcomeController extends Controller {
 	 */
 	public function index()
 	{	
-		return view('welcome');
+		$postAll	= Post::where('category_id','=',1)->orderBy('created_at','desc')->limit(4)->get();
+		$postnews	= Post::where('category_id','=',2)->orderBy('created_at','desc')->limit(4)->get();
+		$postprog	= Post::where('category_id','=',3)->orderBy('created_at','desc')->limit(3)->get();
+		$posthruaite	= Post::where('category_id','=',4)->orderBy('created_at','desc')->limit(3)->get();
+		return view('welcome',compact('postAll','postnews','postprog','posthruaite'));
 	}
 
 }

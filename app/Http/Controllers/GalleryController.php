@@ -17,7 +17,14 @@ class GalleryController extends Controller {
 	 */
 	public function index()
 	{
-		return view('gallery.index');
+		if(isset($_GET['acid'])) { 
+			$acid = $_GET['acid'];
+			$albums = Album::where('album_cat_id','=',$acid)->orderBy('name')->paginate();
+		} else {  
+			$albums = Album::orderBy('name')->paginate();
+		}
+
+		return view('gallery.index',compact('albums'));
 	}
 
 	/**

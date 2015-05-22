@@ -8,11 +8,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Oleose App Landing Page | Bootstrap Theme</title>
+    <title>Thalai Kristian Pawl | Chanmari Unit</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <link rel="shortcut icon" href="{{ asset('/img/favicon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('/img/tkp.png') }}">
 
     <link rel="stylesheet" href="{{ asset('/css/bootstrap.css') }}">
     
@@ -54,7 +54,7 @@
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                             <span class="fa fa-bars fa-lg"></span>
                         </button>
-                        <a class="navbar-brand" href="index.html">
+                        <a class="navbar-brand" href="/">
                             <img src="{{ asset('/img/eco/logo.png') }}" alt="" class="logo">
                         </a>
                     </div>
@@ -63,20 +63,25 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#about">about</a>
+                            <li><a href="#news">news</a>
                             </li>
-                            <li><a href="#features">features</a>
+                            <li><a href="#article">article</a>
                             </li>
-                            <li><a href="#reviews">reviews</a>
+                            <li><a href="#program">program</a>
                             </li>
-                            <li><a href="#screens">screens</a>
+                            <li><a href="#hruaitu">hruaitute</a>
                             </li>
-                            <li><a href="#demo">demo</a>
+                            <li><a href="gallery">gallery</a>
                             </li>
-                            <li><a class="getApp" href="#getApp">get app</a>
-                            </li>
-                            <li><a href="#support">support</a>
-                            </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">group<span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{{ url('group1') }}">group 1</a></li>
+                                    <li><a href="{{ url('group2') }}">group 2</a></li>
+                                    <li><a href="{{ url('group3') }}">group 3</a></li>
+                                    <li><a href="{{ url('') }}">group 4</a></li>
+                                   </ul>
+                                </li>
                         </ul>
                     </div>
                     <!-- /.navbar-collapse -->
@@ -103,7 +108,7 @@
                             data-speed="500"
                             data-start="700"
                             data-easing="Power4.easeOut">
-                            <img src="{{ asset('/img/eco/Slides/hand-eco.png') }}" alt="">
+                           <!--  <img src="{{ asset('/img/eco/Slides/hand-eco.png') }}" alt=""> -->
                         </div>
 
                         <div class="tp-caption lfl fadeout visible-xs"
@@ -114,25 +119,25 @@
                             data-speed="500"
                             data-start="700"
                             data-easing="Power4.easeOut">
-                            <img src="{{ asset('/img/eco/iphone-eco.png') }}" alt="">
+                            <!-- <img src="{{ asset('/img/eco/iphone-eco.png') }}" alt=""> -->
                         </div>
 
-                        <div class="tp-caption large_white_bold sft" data-x="550" data-y="center" data-hoffset="0" data-voffset="-80" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
-                            Oleose
+                        <div class="tp-caption large_white_bold sft" data-x="550" data-y="center" data-hoffset="0" data-voffset="0" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
+                            TKP
                         </div>
-                        <div class="tp-caption large_white_light sfr" data-x="770" data-y="center" data-hoffset="0" data-voffset="-80" data-speed="500" data-start="1400" data-easing="Power4.easeOut">
-                            App
+                        <div class="tp-caption large_white_light sfr" data-x="770" data-y="center" data-hoffset="0" data-voffset="0" data-speed="500" data-start="1400" data-easing="Power4.easeOut">
+                            Chanmari Unit
                         </div>
-                        <div class="tp-caption large_white_light sfb" data-x="550" data-y="center" data-hoffset="0" data-voffset="0" data-speed="1000" data-start="1500" data-easing="Power4.easeOut">
-                            Landing Theme
+                        <div class="tp-caption large_white_light sfb" data-x="350" data-y="center" data-hoffset="0" data-voffset="90" data-speed="1000" data-start="1500" data-easing="Power4.easeOut">
+                            KRISTA LEH KOHHRAN TAN
                         </div>
 
-                        <div class="tp-caption sfb hidden-xs" data-x="550" data-y="center" data-hoffset="0" data-voffset="85" data-speed="1000" data-start="1700" data-easing="Power4.easeOut">
+                       <!--  <div class="tp-caption sfb hidden-xs" data-x="550" data-y="center" data-hoffset="0" data-voffset="85" data-speed="1000" data-start="1700" data-easing="Power4.easeOut">
                             <a href="#about" class="btn btn-primary inverse btn-lg">LEARN MORE</a>
                         </div>
                         <div class="tp-caption sfr hidden-xs" data-x="730" data-y="center" data-hoffset="0" data-voffset="85" data-speed="1500" data-start="1900" data-easing="Power4.easeOut">
                             <a href="#getApp" class="btn btn-default btn-lg">GET APP</a>
-                        </div>
+                        </div> -->
 
                     </li>
                     <!-- SLIDE 2 -->
@@ -149,19 +154,19 @@
                             data-speed="1000"
                             data-start="700"
                             data-easing="Power4.easeOut">
-                            <img src="img/eco/Slides/eco-slide2.png" alt="">
+                            <img src="img/eco/Slides/group_pic.jpg" alt="">
                         </div>
 
                         
-                        <div class="tp-caption large_white_light sft" data-x="center" data-y="250" data-hoffset="0" data-voffset="0" data-speed="1000" data-start="1400" data-easing="Power4.easeOut">
+                        <!-- <div class="tp-caption large_white_light sft" data-x="center" data-y="250" data-hoffset="0" data-voffset="0" data-speed="1000" data-start="1400" data-easing="Power4.easeOut">
                             Every Pixel <i class="fa fa-heart"></i>
-                        </div>
+                        </div> -->
                         
                         
                     </li>
 
                     <!-- SLIDE 3 -->
-                    <li data-transition="zoomout" data-slotamount="7" data-masterspeed="1000" >
+                    <li data-transition="zoomout" data-slotamount="20" data-masterspeed="1000" >
                         <!-- MAIN IMAGE -->
                         <img src="{{ asset('/img/transparent.png') }}"  alt="slidebg1"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
                         <!-- LAYERS -->
@@ -176,10 +181,10 @@
                             data-speed="1000"
                             data-start="700"
                             data-easing="Power4.easeOut">
-                            <img src="{{ asset('/img/eco/Slides/family-eco.png') }}" alt="">
+                      <img src="{{ asset('/img/eco/Slides/tkp-logo.png') }}" alt="">
                         </div>
 
-                        <div class="tp-caption customin customout visible-xs"
+                       <!--  <div class="tp-caption customin customout visible-xs"
                             data-x="center"
                             data-y="center"
                             data-hoffset="0"
@@ -189,28 +194,31 @@
                             data-speed="1000"
                             data-start="700"
                             data-easing="Power4.easeOut">
-                            <img src="{{ asset('/img/eco/Slides/family-eco.png') }}" alt="">
-                        </div>
+                            <img src="{{ asset('/img/eco/Slides/tkp-logo.png') }}" alt="">
+                        </div> -->
 
-                        <div class="tp-caption lfb visible-xs" data-x="center" data-y="center" data-hoffset="0" data-voffset="400" data-speed="1000" data-start="1200" data-easing="Power4.easeOut">
+                      <!--   <div class="tp-caption lfb visible-xs" data-x="center" data-y="center" data-hoffset="0" data-voffset="400" data-speed="1000" data-start="1200" data-easing="Power4.easeOut">
                             <a href="#" class="btn btn-primary inverse btn-lg">Purchase</a>
-                        </div>
+                        </div> -->
 
                         
-                        <div class="tp-caption mediumlarge_light_white sfl hidden-xs" data-x="left" data-y="center" data-hoffset="0" data-voffset="-50" data-speed="1000" data-start="1000" data-easing="Power4.easeOut">
-                           Powerful Responsive
-                        </div>
-                        <div class="tp-caption mediumlarge_light_white sft hidden-xs" data-x="left" data-y="center" data-hoffset="0" data-voffset="0" data-speed="1000" data-start="1200" data-easing="Power4.easeOut">
-                           App Landing Page
-                        </div>
-                        <div class="tp-caption small_light_white sfb hidden-xs" data-x="left" data-y="center" data-hoffset="0" data-voffset="80" data-speed="1000" data-start="1600" data-easing="Power4.easeOut">
-                           <p>Nulla pretium libero interdum, tempus lorem non, rutrum diam. <br> Quisque pellentesque diam sed pulvinar lobortis. Vestibulum ante <br>ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
-                        </div>
-
-                        <div class="tp-caption lfl hidden-xs" data-x="left" data-y="center" data-hoffset="0" data-voffset="160" data-speed="1000" data-start="1800" data-easing="Power4.easeOut">
-                            <a href="#" class="btn btn-primary inverse btn-lg">Purchase</a>
+                        <div class="tp-caption mediumlarge_light_white sfl hidden-xs" data-x="left" data-y="center" data-hoffset="200" data-voffset="-50" data-speed="1000" data-start="1000" data-easing="Power4.easeOut">
+                           KRISTA LEH KOHHRAN TAN
                         </div>
                         
+                        <div class="tp-caption small_light_white sfb hidden-xs text-center " data-x="left" data-y="center" data-hoffset="270" data-voffset="80" data-speed="1000" data-start="1600" data-easing="Power4.easeOut" >
+                         <br>
+                           <strong><p><font face="krista"> Ka chakna Isua Krista chu ring tlatin 
+                            <br> Nitin Pathian ka pawl anga
+                            <br>  Kan Kohhran Pathian biakna leh
+                            <br> Hnathawhna ah ka tel zel ang
+                            <br>  Khawtlang thatna leh Inunauna
+                            <br>  Tinghet turin ka thawk anga
+                            <br>  Krista hnenah midangte
+                             <br> Hruai ka tum tlat ang 
+                             </font>
+                         </strong></p>
+                        </div>
                         
                     </li>
                     
@@ -226,294 +234,94 @@
 
         
 
-        <section id="about">
+        <section id="news">
             <div class="container">
                 
                 <div class="section-heading scrollpoint sp-effect3">
-                    <h1>About Us</h1>
+                    <h1>News</h1>
                     <div class="divider"></div>
-                    <p>Oleose Beautiful App Landing Page</p>
+                    <p>Thutharlam poimawh tak tak te</p>
                 </div>
 
                 <div class="row">
-                    <div class="col-md-3 col-sm-3 col-xs-6">
                         <div class="about-item scrollpoint sp-effect2">
-                            <i class="fa fa-download fa-2x"></i>
-                            <h3>Easy setup</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                            @foreach($postnews as $post)
+                            <div class="text-left col-md-3"><h3>{{$post->title}}&nbsp;</h3><br>
+                                {!! substr($post->body,0,200) !!}
+                                        
+                                        ...<br><a class="pull-right" href="{{route('view.show', array($post->id))}}">Read More</a>
+                            </div>     
+                                @endforeach
                         </div>
-                    </div>
-                    <div class="col-md-3 col-sm-3 col-xs-6" >
-                        <div class="about-item scrollpoint sp-effect5">
-                            <i class="fa fa-mobile fa-2x"></i>
-                            <h3>On-the-go</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-3 col-xs-6" >
-                        <div class="about-item scrollpoint sp-effect5">
-                            <i class="fa fa-users fa-2x"></i>
-                            <h3>Social connect</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-3 col-xs-6" >
-                        <div class="about-item scrollpoint sp-effect1">
-                            <i class="fa fa-sliders fa-2x"></i>
-                            <h3>Dedicated support</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="features">
+        <section id="article">
             <div class="container">
                 <div class="section-heading scrollpoint sp-effect3">
-                    <h1>Features</h1>
+                    <h1>Articles</h1>
                     <div class="divider"></div>
-                    <p>Learn more about this feature packed App</p>
                 </div>
                 <div class="row">
-                    <div class="col-md-4 col-sm-4 scrollpoint sp-effect1">
-                        <div class="media media-left feature">
-                            <a class="pull-right" href="#">
-                                <i class="fa fa-cogs fa-2x"></i>
-                            </a>
-                            <div class="media-body">
-                                <h3 class="media-heading">User Settings</h3>
-                                Lorem ipsum dolor sit amet.
-                            </div>
+                        <div class="about-item scrollpoint sp-effect2">
+                            @foreach($postAll as $post)
+                            <div class="text-left col-md-3"><h3>{{$post->title}}&nbsp;</h3><br>
+                                {!! substr($post->body,0,200) !!}
+                                        
+                                        ...<br><a class="pull-right" href="{{route('view.show', array($post->id))}}">Read More</a>
+                                      
+                             </div>
+                                @endforeach
                         </div>
-                        <div class="media media-left feature">
-                            <a class="pull-right" href="#">
-                                <i class="fa fa-envelope fa-2x"></i>
-                            </a>
-                            <div class="media-body">
-                                <h3 class="media-heading">Messages Inbox</h3>
-                                Lorem ipsum dolor sit amet.
-                            </div>
-                        </div>
-                        <div class="media media-left feature">
-                            <a class="pull-right" href="#">
-                                <i class="fa fa-users fa-2x"></i>
-                            </a>
-                            <div class="media-body">
-                                <h3 class="media-heading">Friends List</h3>
-                                Lorem ipsum dolor sit amet.
-                            </div>
-                        </div>
-                        <div class="media media-left feature">
-                            <a class="pull-right" href="#">
-                                <i class="fa fa-comments fa-2x"></i>
-                            </a>
-                            <div class="media-body">
-                                <h3 class="media-heading">Live Chat Messages</h3>
-                                Lorem ipsum dolor sit amet.
-                            </div>
-                        </div>
-                        <div class="media media-left feature">
-                            <a class="pull-right" href="#">
-                                <i class="fa fa-calendar fa-2x"></i>
-                            </a>
-                            <div class="media-body">
-                                <h3 class="media-heading">Calendar / Planner</h3>
-                                Lorem ipsum dolor sit amet.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4" >
-                        <img src="{{ asset('/img/eco/iphone-eco.png') }}" class="img-responsive scrollpoint sp-effect5" alt="">
-                    </div>
-                    <div class="col-md-4 col-sm-4 scrollpoint sp-effect2">
-                        <div class="media feature">
-                            <a class="pull-left" href="#">
-                                <i class="fa fa-map-marker fa-2x"></i>
-                            </a>
-                            <div class="media-body">
-                                <h3 class="media-heading">My Places</h3>
-                                Lorem ipsum dolor sit amet.
-                            </div>
-                        </div>
-                        <div class="media feature">
-                            <a class="pull-left" href="#">
-                                <i class="fa fa-film fa-2x"></i>
-                            </a>
-                            <div class="media-body">
-                                <h3 class="media-heading">Media Player™</h3>
-                                Lorem ipsum dolor sit amet.
-                            </div>
-                        </div>
-                        <div class="media feature">
-                            <a class="pull-left" href="#">
-                                <i class="fa fa-compass fa-2x"></i>
-                            </a>
-                            <div class="media-body">
-                                <h3 class="media-heading">Intuitive Statistics</h3>
-                                Lorem ipsum dolor sit amet.
-                            </div>
-                        </div>
-                        <div class="media feature">
-                            <a class="pull-left" href="#">
-                                <i class="fa fa-picture-o fa-2x"></i>
-                            </a>
-                            <div class="media-body">
-                                <h3 class="media-heading">Weather on-the-go</h3>
-                                Lorem ipsum dolor sit amet.
-                            </div>
-                        </div>
-                        <div class="media active feature">
-                            <a class="pull-left" href="#">
-                                <i class="fa fa-plus fa-2x"></i>
-                            </a>
-                            <div class="media-body">
-                                <h3 class="media-heading">And much more!</h3>
-                                Lorem ipsum dolor sit amet.
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="reviews">
-            <div class="container">
-                <div class="section-heading inverse scrollpoint sp-effect3">
-                    <h1>Reviews</h1>
-                    <div class="divider"></div>
-                    <p>Read What's The People Are Saying About Us</p>
-                </div>
-                <div class="row">
-                    <div class="col-md-10 col-md-push-1 scrollpoint sp-effect3">
-                        <div class="review-filtering">
-                            <div class="review">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <div class="review-person">
-                                            <img src="http://api.randomuser.me/portraits/women/94.jpg" alt="" class="img-responsive">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-10">
-                                        <div class="review-comment">
-                                            <h3>“I love Oleose, I highly recommend it, Everyone Try It Now”</h3>
-                                            <p>
-                                                - Krin Fox
-                                                <span>
-                                                    <i class="fa fa-star fa-lg"></i>
-                                                    <i class="fa fa-star fa-lg"></i>
-                                                    <i class="fa fa-star fa-lg"></i>
-                                                    <i class="fa fa-star fa-lg"></i>
-                                                    <i class="fa fa-star-o fa-lg"></i>
-                                                </span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="review rollitin">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <div class="review-person">
-                                            <img src="http://api.randomuser.me/portraits/men/70.jpg" alt="" class="img-responsive">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-10">
-                                        <div class="review-comment">
-                                            <h3>“Oleaose Is The Best Stable, Fast App I Have Ever Experienced”</h3>
-                                            <p>
-                                                - Theodore Willis
-                                                <span>
-                                                    <i class="fa fa-star fa-lg"></i>
-                                                    <i class="fa fa-star fa-lg"></i>
-                                                    <i class="fa fa-star fa-lg"></i>
-                                                    <i class="fa fa-star-half-o fa-lg"></i>
-                                                    <i class="fa fa-star-o fa-lg"></i>
-                                                </span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="review rollitin">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <div class="review-person">
-                                            <img src="http://api.randomuser.me/portraits/men/93.jpg" alt="" class="img-responsive">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-10">
-                                        <div class="review-comment">
-                                            <h3>“Keep It Up Guys Your Work Rules, Cheers :)”</h3>
-                                            <p>
-                                                - Ricky Grant
-                                                <span>
-                                                    <i class="fa fa-star fa-lg"></i>
-                                                    <i class="fa fa-star fa-lg"></i>
-                                                    <i class="fa fa-star fa-lg"></i>
-                                                    <i class="fa fa-star-half-o fa-lg"></i>
-                                                    <i class="fa fa-star-o fa-lg"></i>
-                                                </span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="screens">
+        <section id="program">
             <div class="container">
 
                 <div class="section-heading scrollpoint sp-effect3">
-                    <h1>Screens</h1>
+                    <h1>Program</h1>
                     <div class="divider"></div>
-                    <p>See what’s included in the App</p>
                 </div>
 
-                <div class="filter scrollpoint sp-effect3">
-                    <a href="javascript:void(0)" class="button js-filter-all active">All Screens</a>
-                    <a href="javascript:void(0)" class="button js-filter-one">User Access</a>
-                    <a href="javascript:void(0)" class="button js-filter-two">Social Network</a>
-                    <a href="javascript:void(0)" class="button js-filter-three">Media Players</a>
+                <div class="row">
+                        <div class="about-item scrollpoint sp-effect2">
+                            @foreach($postprog as $post)
+                            <div class="text-left col-md-4"><h3>{{$post->title}}&nbsp;</h3>
+                                {!! $post->body !!}
+                                        
+                                      
+                             </div>
+                                @endforeach
+                        </div>
                 </div>
-                <div class="slider filtering scrollpoint sp-effect5" >
-                    <div class="one">
-                        <img src="{{ asset('/img/eco/screens/profile.jpg') }}" alt="">
-                        <h4>Profile Page</h4>
-                    </div>
-                    <div class="two">
-                        <img src="{{ asset('/img/eco/screens/menu.jpg') }}" alt="">
-                        <h4>Toggel Menu</h4>
-                    </div>
-                    <div class="three">
-                        <img src="{{ asset('/img/eco/screens/weather.jpg') }}" alt="">
-                        <h4>Weather Forcast</h4>
-                    </div>
-                    <div class="one">
-                        <img src="{{ asset('/img/eco/screens/signup.jpg') }}" alt="">
-                        <h4>Sales Analysis</h4>
-                    </div>
-                    <div class="one">
-                        <img src="{{ asset('/img/eco/screens/calendar.jpg') }}" alt="">
-                        <h4>Event Calendar</h4>
-                    </div>
-                    <div class="two">
-                        <img src="{{ asset('/img/eco/screens/options.jpg') }}" alt="">
-                        <h4>Some Options</h4>
-                    </div>
-                    <div class="three">
-                        <img src="{{ asset('/img/eco/screens/sales.jpg') }}" alt="">
-                        <h4>Lorem ipsum dolor</h4>
-                    </div>
-                </div>
+
             </div>
         </section>
 
-        <section id="demo">
+        <section id="hruaitu">
+            <div class="container">
+                   <div class="section-heading scrollpoint sp-effect3">
+                    <h1>Hruaitute</h1>
+                    <div class="divider"></div>
+                </div>
+                    <div class="row">
+                        <div class="about-item scrollpoint sp-effect2">
+                            @foreach($posthruaite as $post)
+                            <div class="text-left col-md-4"><h3>{{$post->title}}&nbsp;</h3>
+                                {!! $post->body !!}
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+            </div>
+        </section>
+
+        
+
+      <!--   <section id="demo">
             <div class="container">
                 <div class="section-heading scrollpoint sp-effect3">
                     <h1>Demo</h1>
@@ -621,7 +429,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <footer>
             <div class="container">

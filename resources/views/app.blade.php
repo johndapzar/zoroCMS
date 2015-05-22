@@ -12,6 +12,7 @@
 	
 	<script type="text/javascript" src="{{ asset('/js/jquery.js') }}"></script>
 	<link href="{{ asset('/js/redactor/redactor.css') }}" rel="stylesheet">
+	<link href="{{ asset('/js/jssor.slider.min.js') }}" rel="stylesheet">
 	<link href="{{ asset('/css/jquery.datetimepicker.css') }}" rel="stylesheet">
 	<script type="text/javascript" src="{{ asset('/js/redactor/redactor.min.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('/js/jquery.datetimepicker.js') }}"></script>
@@ -28,6 +29,8 @@
 	    {
 	    	$('#redactorContent').redactor({
 	    		minHeight:200,
+	    		 imageUpload: 'post.store'
+
 	    	});
 	    });
     </script>
@@ -63,20 +66,13 @@
 						</ul>
 					</li>
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Hospital / Centre <span class="caret"></span></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Group Post <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
-							<li><a href="{{ url('district') }}">District</a></li>
-							<li><a href="{{ url('hospitalcategory') }}">Hospital / Center Category</a></li>
-							<li><a href="{{ url('hospitals') }}">Hospital / Center</a></li>
+							<li><a href="{{ url('groupcategory') }}">Category</a></li>
+							<li><a href="{{ url('grouppost') }}">Post</a></li>
 						</ul>
 					</li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Human Resource <span class="caret"></span></a>
-						<ul class="dropdown-menu" role="menu">
-							<li><a href="{{ url('designation') }}">Designation</a></li>
-							<li><a href="{{ url('staffrecord') }}">Staff Record</a></li>
-						</ul>
-					</li>
+					
 					
 				</ul>
 

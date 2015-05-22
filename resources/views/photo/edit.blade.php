@@ -42,7 +42,7 @@
 						<div class="form-group">
 							{!! Form::label('Photo','',['class'=>'col-md-4 control-label']) !!}
 							<div class="col-md-8">
-								{!! Form::file('photo_file',['class'=>'form-control']) !!}
+								{!! Form::file('photo_file','',['class'=>'form-control']) !!}
 								@if($errors->has('photo_file'))
 									<span class="text-danger">{{$errors->first('photo_file')}}</span>
 								@endif

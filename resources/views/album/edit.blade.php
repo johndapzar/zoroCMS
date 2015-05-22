@@ -24,7 +24,7 @@
 					    <td height="25" align="center" class="text-center">{{ $index++ }}</td>
 					    <td height="25" align="left">{{ $album->name }}&nbsp;</td>
 					    <td height="25" align="left" bgcolor="">{{ $album->albumcat->name }}&nbsp;</td>
-					    <td height="25" align="left" bgcolor=""><div class="col-md-12"><a href="{{ URL::route('photo.index','album_id='.$album->id) }}"><img src="{{ asset($album->directory.$album->cover.'') }}" class="img-thumbnail" ></a></div>&nbsp;</td>
+  					    <td height="25" align="left" class="col-md-4 text-center"><a href="{{ URL::route('photo.index','album_id='.$album->id) }}"><img src="{{ asset($album->directory.$album->cover) }}" class="img-thumbnail" style="width:200px"></a>&nbsp;</td>
 					    <td align="left" class="action text-center">
 					    	{!! Form::open(array('url'=>route('album.destroy', array($album->id)),'method'=>'delete')) !!}
 								<a href="{{route('album.edit', array($album->id))}}" class="btn btn-xs btn-success tooltip-top" title="Edit prod"><i class="glyphicon glyphicon-edit"></i></a>&nbsp;&nbsp;
@@ -61,10 +61,20 @@
 								{!! Form::file('cover',['class'=>'form-control']) !!}
 							</div>
 						</div>
+
+						<div class="form-group">
+							{!! Form::label('Category','',['class'=>'col-md-4 control-label'])!!}
+							<div class="col-md-8">
+								{!! Form::select('album_cat_id',$albumCatAll,'',['class'=>'form-control']) !!}
+								@if($errors->has('album_cat_id'))
+									<span class="text-danger">{{$errors->first('album_cat_id')}}</span>
+								@endif
+							</div>
+						</div>
 						<div class="form-group">
 							<div class="col-md-8 col-md-offset-4">
 								<button type="submit" class="btn btn-success">
-									Save
+									Update
 								</button>
 							</div>
 						</div>

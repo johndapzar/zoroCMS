@@ -1,12 +1,23 @@
 @extends('app')
 
 @section('content')
+<script type="text/javascript">
+	    $(function($)
+	    {
+	    	$('#redactorContent').redactor({
+	    		minHeight:200,
+	    		 imageUpload: 'redactorupload'
+
+	    	});
+	    });
+    </script>
+
 <div class="container">
 	<div class="row">
 		<div class="panel panel-default">
 			<div class="panel-heading"><strong>Add Post</strong></div>
 			<div class="panel-body">
-				{!! Form::open(['route'=>'post.store','class'=>'form-horizontal','enctype'=>'multipart/form-data']) !!}
+				{!! Form::open(['url'=>'redactorupload','class'=>'form-horizontal','enctype'=>'multipart/form-data']) !!}
 				{!! Form::hidden('user_id',Auth::user()->id,'') !!}
 				<div class="form-group">
 					<div class="col-md-6">

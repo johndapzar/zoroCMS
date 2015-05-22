@@ -35,7 +35,24 @@ Route::group(['middleware' => 'auth'], function()
 	Route::resource('staffrecord','StaffController');
 	Route::resource('posting','PostingController');
 	Route::get('hospitalByCat', 'PostingController@hospitalByCat');
+	Route::post('redactorupload', function(){
+		$file =Input::file('file');
+		$move = $file->move('upload/', $file->getClientOrginalName());
+
+		if($move){
+			return Response::json(['filelink'=> 'upload/' . $file->getClientOrginalName()]);
+			}
+			else{
+				return Response::json(['error'=>true]);
+			}
+	});
 });
+Route::resource('groupcategory','GroupCategoryController');
+Route::resource('grouppost','GroupPostController');
+Route::resource('group1','GroupController@group1');
+Route::resource('group2','GroupController@group2');
+Route::resource('group3','GroupController@group3');
+Route::resource('view','ViewController');
 Route::resource('page','PageController');
 Route::resource('gallery','GalleryController');
 Route::get('family',function(){

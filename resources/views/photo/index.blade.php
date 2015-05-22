@@ -11,14 +11,21 @@
 					@foreach($photoByAlbum as $photo)
 						<div class="col-md-3" style="padding-bottom:10px; height:200px;">
 							<div class="img-thumbnail">
-								<img src="{{ asset($photo->directory.$photo->photo_file.'') }}" class="img-thumbnail"><br>
+								<a href="{{ asset($photo->directory.$photo->photo_file) }}" data-toggle="modal" data-target=".dapzar_{{ $photo->id }}"><img src="{{ asset($photo->directory.$photo->photo_file.'') }}" class="img-thumbnail"></a><br>
 								{{ $photo->name }}
 								{!! Form::open(array('url'=>route('photo.destroy', array($photo->id)),'method'=>'delete')) !!}
 									{!! Form::hidden('album_id',$photo->album_id) !!}
 									<a href="{{route('photo.edit', [$photo->id,'album_id'=>$photo->album_id])}}" class="btn btn-xs btn-success tooltip-top" title="Edit Photo"><i class="glyphicon glyphicon-edit"></i></a>&nbsp;&nbsp;
 									<button type="submit" onclick="return confirm ('<?php echo ('Are you sure') ?>');" name="id" class="btn btn-xs btn-danger tooltip-top" title="Remove Photo" value="{{$photo->id}}"><i class="glyphicon glyphicon-trash"></i></button>
-								{!!Form::close() !!}
+								{!! Form::close() !!}
 							</div>
+						</div>
+						<div class="modal fade bs-example-modal-md dapzar_{{ $photo->id }}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+						  <div class="modal-dialog modal-md ">
+						  	<center> 
+   								<img  src="{{ ($photo->directory.$photo->photo_file) }}" class="img-responsive modal-content"><br>
+						  	</center>
+						  </div>
 						</div>
 					@endforeach
 				</div>

@@ -120,6 +120,7 @@ class AlbumController extends Controller {
 		}
 
 		$album->name 	= $input['name'];
+		$album->album_cat_id = $input['album_cat_id'];
 		$album->save();
 
 		return redirect('album');
